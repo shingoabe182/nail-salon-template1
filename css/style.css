@@ -1,0 +1,269 @@
+/* 基本設定 */
+body {
+    font-family: 'Shippori Mincho', serif;
+    line-height: 1.8;
+    color: #333;
+    background-color: #fff;
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    vertical-align: bottom;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* ヘッダー */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background-color: #fff;
+    border-bottom: 1px solid #f0f0f0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    box-sizing: border-box;
+}
+
+body {
+    padding-top: 85px;
+}
+
+.header-logo {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0;
+    z-index: 110; /* メニューが開いた時もロゴが上に来るように */
+}
+
+.header-nav {
+    display: flex; /* PCでは横並び */
+}
+
+.header-nav ul {
+    display: flex;
+    gap: 30px;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.header-cta {
+    display: inline-block;
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+/* ハンバーガーメニュー */
+.hamburger {
+    display: none; /* PCでは非表示 */
+    z-index: 110;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+}
+
+.hamburger-bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: #333;
+    margin: 5px 0;
+    transition: all 0.3s ease-in-out;
+}
+
+
+/* ヒーローセクション */
+#hero {
+    height: calc(100vh - 85px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-image: url('../images/hero-bg.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.hero-message {
+    color: #fff;
+    text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);
+}
+
+.hero-message h2 {
+    font-size: 48px;
+    margin: 0 0 10px;
+    font-weight: normal;
+}
+
+.hero-message p {
+    font-size: 20px;
+    margin: 0;
+}
+
+
+/* メインコンテンツ */
+main {
+    display: block;
+}
+
+.section {
+    padding: 80px 40px;
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.section-title {
+    font-size: 32px;
+    margin-top: 0;
+    margin-bottom: 60px; /* 少し余白を広げる */
+    font-weight: normal;
+}
+
+/* コンセプトセクション */
+.concept-container {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    text-align: left;
+}
+
+.concept-image {
+    flex: 6;
+}
+
+.concept-text {
+    flex: 4;
+    text-align: center;
+}
+
+.concept-image img {
+    border-radius: 8px;
+}
+
+.concept-text h3 {
+    font-size: 22px;
+    font-weight: bold;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+/* ギャラリーセクション (Swiper) */
+.swiper-container {
+    width: 100%;
+    height: 300px; /* スライダーの高さを指定 */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.swiper-button-next, .swiper-button-prev {
+    color: #333;
+}
+
+.swiper-pagination-bullet-active {
+    background: #333;
+}
+
+
+/* フッター */
+.footer {
+    text-align: center;
+    padding: 40px;
+    background-color: #f8f8f8;
+    color: #777;
+    font-size: 14px;
+}
+
+/* レスポンシブ対応 (768px以下) */
+@media (max-width: 768px) {
+    .header {
+        padding: 15px 20px;
+    }
+
+    body {
+        padding-top: 75px;
+    }
+
+    .header-nav {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background-color: rgba(255, 255, 255, 0.95);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .header-nav.is-active {
+        display: flex;
+    }
+
+    .header-nav ul {
+        flex-direction: column;
+        gap: 40px;
+        font-size: 20px;
+        text-align: center;
+    }
+
+    .hamburger {
+        display: block;
+    }
+
+    .hamburger.is-active .hamburger-bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+    .hamburger.is-active .hamburger-bar:nth-child(2) {
+        opacity: 0;
+    }
+    .hamburger.is-active .hamburger-bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+    .concept-container {
+        flex-direction: column;
+        gap: 30px;
+    }
+}
