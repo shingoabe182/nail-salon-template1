@@ -14,9 +14,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const swiper = new Swiper('.swiper-container', {
         // パラメータ設定
         loop: true,
-        speed: 800,
+        speed: 600, // アニメーション速度を調整
         autoplay: {
-            delay: 5000, // 5秒ごとに自動再生
+            delay: 4000, // 自動再生の間隔を調整
             disableOnInteraction: false,
         },
         pagination: {
@@ -32,13 +32,13 @@ document.addEventListener('DOMContentLoaded', function() {
             // 320px以上の場合
             320: {
               slidesPerView: 2,
-              slidesPerGroup: 2,
+              slidesPerGroup: 1, // 1枚ずつスライド
               spaceBetween: 20
             },
             // 768px以上の場合
             768: {
               slidesPerView: 4,
-              slidesPerGroup: 4,
+              slidesPerGroup: 1, // 1枚ずつスライド
               spaceBetween: 30
             }
         }
