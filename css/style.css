@@ -114,7 +114,8 @@ body {
 }
 
 .hero-message h2 {
-    font-size: 48px;
+    font-size: 40px;
+    letter-spacing: 2px;
     margin: 0 0 10px;
     font-weight: normal;
 }
@@ -172,6 +173,48 @@ main {
     margin-bottom: 20px;
 }
 
+/* メニューセクション */
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    text-align: left;
+}
+
+.menu-card {
+    border: 1px solid #f0f0f0;
+    border-radius: 8px;
+    padding: 25px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.menu-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+.menu-card-title {
+    font-size: 18px;
+    font-weight: 700; /* 太字 */
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+.menu-card-description {
+    font-size: 15px;
+    margin-bottom: 20px;
+    min-height: 5em; /* 説明文の高さをある程度揃える */
+}
+
+.menu-card-price {
+    font-size: 18px;
+    font-weight: 700; /* 太字 */
+    text-align: right;
+    margin: 0;
+}
+
+
 /* ギャラリーセクション (Swiper) */
 .swiper-container {
     width: 100%;
@@ -202,6 +245,58 @@ main {
 
 .swiper-pagination-bullet-active {
     background: #333;
+}
+
+/* アクセスセクション */
+.access-container {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    text-align: left;
+}
+
+.map-container,
+.access-info {
+    flex: 1;
+}
+
+.map-container iframe {
+    width: 100%;
+    height: 350px;
+    border: 0;
+    border-radius: 8px;
+}
+
+.access-info .salon-name {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.access-info p {
+    margin-bottom: 1em;
+}
+
+/* コンタクトセクション */
+.contact-message {
+    margin-bottom: 30px;
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: #333;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 700;
+    padding: 15px 60px;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #555;
+    transform: scale(1.05);
 }
 
 
@@ -263,6 +358,11 @@ main {
     }
 
     .concept-container {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .access-container {
         flex-direction: column;
         gap: 30px;
     }
