@@ -1,3 +1,10 @@
+/*
+Theme Name: Nail Salon LP Theme
+Author: Gemini & Shingo Abe
+Description: A landing page theme for nail salons.
+Version: 1.0
+*/
+
 /* 基本設定 */
 body {
     font-family: 'Shippori Mincho', serif;
@@ -103,7 +110,7 @@ body {
     justify-content: center;
     align-items: center;
     text-align: center;
-    background-image: url('../images/hero-bg.jpg');
+    background-image: url('images/hero-bg.jpg');
     background-size: cover;
     background-position: center;
 }
@@ -171,6 +178,37 @@ main {
     font-weight: bold;
     margin-top: 0;
     margin-bottom: 20px;
+}
+
+/* Newsセクション */
+.news-list {
+    max-width: 800px; /* リストの最大幅を指定 */
+    margin: 0 auto; /* ブロックを中央に配置 */
+    text-align: left;
+    border-top: 1px solid #eee;
+}
+
+.news-item a {
+    display: flex;
+    align-items: center;
+    padding: 20px 10px;
+    border-bottom: 1px solid #eee;
+    transition: background-color 0.3s ease;
+}
+
+.news-item a:hover {
+    background-color: #f9f9f9;
+}
+
+.news-date {
+    margin-right: 30px;
+    font-size: 15px;
+    color: #777;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; /* 日付はゴシック体の方が見やすい */
+}
+
+.news-title {
+    font-weight: 700;
 }
 
 /* メニューセクション */

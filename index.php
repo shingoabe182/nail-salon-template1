@@ -1,36 +1,4 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nail Salon Template</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
-    <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-
-    <header class="header">
-        <h1 class="header-logo">Nail Salon</h1>
-        <nav class="header-nav" id="js-nav">
-            <ul>
-                <li><a href="#concept">Concept</a></li>
-                <li><a href="#menu">Menu</a></li>
-                <li><a href="#gallery">Gallery</a></li>
-                <li><a href="#access">Access</a></li>
-            </ul>
-        </nav>
-        <div class="header-right">
-            <a href="#contact" class="header-cta">ご予約</a>
-            <button class="hamburger" id="js-hamburger">
-                <span class="hamburger-bar"></span>
-                <span class="hamburger-bar"></span>
-                <span class="hamburger-bar"></span>
-            </button>
-        </div>
-    </header>
+<?php get_header(); ?>
 
     <main>
         <section id="hero">
@@ -47,7 +15,7 @@
             <h2 class="section-title">Concept</h2>
             <div class="concept-container">
                 <div class="concept-image">
-                    <img src="images/concept-photo.jpg" alt="サロンのコンセプト画像">
+                    <img src="<?php echo get_template_directory_uri(); ?>/images/concept-photo.jpg" alt="サロンのコンセプト画像">
                 </div>
                 <div class="concept-text">
                     <h3>あなただけの特別な時間を、指先から。</h3>
@@ -58,6 +26,36 @@
                     </p>
                 </div>
             </div>
+        </section>
+
+        <section id="news" class="section">
+            <h2 class="section-title">News</h2>
+            <ul class="news-list">
+                <?php
+                $args = array(
+                    'post_type' => 'post',
+                    'posts_per_page' => 5, // 5件表示
+                );
+                $the_query = new WP_Query( $args );
+                if ( $the_query->have_posts() ) :
+                    while ( $the_query->have_posts() ) : $the_query->the_post();
+                ?>
+                <li class="news-item">
+                    <a href="<?php the_permalink(); ?>">
+                        <span class="news-date"><?php the_time('Y.m.d'); ?></span>
+                        <span class="news-title"><?php the_title(); ?></span>
+                    </a>
+                </li>
+                <?php
+                    endwhile;
+                else:
+                ?>
+                    <p>お知らせはまだありません。</p>
+                <?php
+                endif;
+                wp_reset_postdata();
+                ?>
+            </ul>
         </section>
 
         <section id="menu" class="section">
@@ -93,14 +91,14 @@
                 <!-- Additional required wrapper -->
                 <div class="swiper-wrapper">
                     <!-- Slides -->
-                    <div class="swiper-slide"><img src="images/gallery-01.jpg" alt="ネイルデザイン 1"></div>
-                    <div class="swiper-slide"><img src="images/gallery-02.jpg" alt="ネイルデザイン 2"></div>
-                    <div class="swiper-slide"><img src="images/gallery-03.jpg" alt="ネイルデザイン 3"></div>
-                    <div class="swiper-slide"><img src="images/gallery-04.jpg" alt="ネイルデザイン 4"></div>
-                    <div class="swiper-slide"><img src="images/gallery-05.jpg" alt="ネイルデザイン 5"></div>
-                    <div class="swiper-slide"><img src="images/gallery-06.jpg" alt="ネイルデザイン 6"></div>
-                    <div class="swiper-slide"><img src="images/gallery-07.jpg" alt="ネイルデザイン 7"></div>
-                    <div class="swiper-slide"><img src="images/gallery-08.jpg" alt="ネイルデザイン 8"></div>
+                    <div class="swiper-slide"><img src="<?php echo get_template_directory_uri(); ?>/images/gallery-01.jpg" alt="ネイルデザイン 1"></div>
+                    <div class="swiper-slide"><img src="<?php echo get_template_directory_uri(); ?>/images/gallery-02.jpg" alt="ネイルデザイン 2"></div>
+                    <div class="swiper-slide"><img src="<?php echo get_template_directory_uri(); ?>/images/gallery-03.jpg" alt="ネイルデザイン 3"></div>
+                    <div class="swiper-slide"><img src="<?php echo get_template_directory_uri(); ?>/images/gallery-04.jpg" alt="ネイルデザイン 4"></div>
+                    <div class="swiper-slide"><img src="<?php echo get_template_directory_uri(); ?>/images/gallery-05.jpg" alt="ネイルデザイン 5"></div>
+                    <div class="swiper-slide"><img src="<?php echo get_template_directory_uri(); ?>/images/gallery-06.jpg" alt="ネイルデザイン 6"></div>
+                    <div class="swiper-slide"><img src="<?php echo get_template_directory_uri(); ?>/images/gallery-07.jpg" alt="ネイルデザイン 7"></div>
+                    <div class="swiper-slide"><img src="<?php echo get_template_directory_uri(); ?>/images/gallery-08.jpg" alt="ネイルデザイン 8"></div>
                 </div>
                 <!-- If we need pagination -->
                 <div class="swiper-pagination"></div>
@@ -134,11 +132,4 @@
         </section>
     </main>
 
-    <footer class="footer">
-        <p>&copy; 2024 Nail Salon. All Rights Reserved.</p>
-    </footer>
-
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-    <script src="js/script.js"></script>
-</body>
-</html>
+<?php get_footer(); ?>
